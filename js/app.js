@@ -9,9 +9,8 @@
 var Cart = function(item, quantity) {
   this.items = items;
   this.quantity = quantity;
-  Cart.all.push(this);
+  Cart.push(this);
 }
-Cart.all = [];
 
 
 // Product Contructor
