@@ -4,8 +4,10 @@ body {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 45px;
   padding: 20px;
+  animation: pulse 3s infinite;
+  -webkit-text-stroke: 1px black;
 }
 
 a {
@@ -17,3 +19,23 @@ a:hover {
   color: red;
 }
 
+footer {
+  padding-top: 340px;
+}
+
+.copy {
+  font-size: 20px;
+}
+
+@keyframes pulse {
+  0% {
+      color: rgb(228, 15, 15);
+  }
+  100% {
+      color: rgb(252, 235, 0);
+  }
+}
+
+span {
+  font-size: 30px;
+}
