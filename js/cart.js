@@ -20,7 +20,8 @@ function renderCart() {
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {
-
+  for(var i = 0; i < Cart.length; i++)
+    var destroy = document.getElementsByTagName('tfoot')[0].innerHTML='';
 }
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
@@ -44,9 +45,14 @@ function showCart() {
   // TODO: Add the TR to the TBODY and each of the TD's to the TR
 
 }
+function pickItemToRemove(){
+  document.getElementsByTagName('tr').addEventListener('click', removeItemFromCart);
+}
 
 function removeItemFromCart(event) {
-
+  Cart = cart.filter(pickItemToRemove);
+  localStorage.setItem('data', Cart)
+  renderChart();
   // TODO: When a delete link is clicked, rebuild the Cart array without that item
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
