@@ -39,3 +39,7 @@ footer {
 span {
   font-size: 30px;
 }
+
+#cart {
+  margin: 10px auto;
+}
