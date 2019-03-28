@@ -8,7 +8,7 @@ var table = document.getElementById('cart');
 table.addEventListener('click', removeItemFromCart);
 
 function loadCart() {
-  Cart = JSON.parse(localStorage.getItem('cart')) || [];
+  Cart = JSON.parse(localStorage.getItem('cartData')) || [];
 }
 
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
@@ -46,12 +46,14 @@ function showCart() {
 
 }
 function pickItemToRemove(){
-  document.getElementsByTagName('tr').addEventListener('click', removeItemFromCart);
+  for(var i = 0; i < Cart.length; i++){
+  document.getElementsByTagName('tr')[i].addEventListener('click', removeItemFromCart);
+  }
 }
 
 function removeItemFromCart(event) {
-  Cart = cart.filter(pickItemToRemove);
-  localStorage.setItem('data', Cart)
+  Cart = Cart.filter(pickItemToRemove());
+  localStorage.setItem('cartData', JSON.stringify(Cart))
   renderChart();
   // TODO: When a delete link is clicked, rebuild the Cart array without that item
   // TODO: Save the cart back to local storage
