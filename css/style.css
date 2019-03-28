@@ -1,0 +1,19 @@
+body {
+  background-color: blanchedalmond;
+  text-align: center;
+}
+
+h1 {
+  font-size: 40px;
+  padding: 20px;
+}
+
+a {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+a:hover {
+  color: red;
+}
+
