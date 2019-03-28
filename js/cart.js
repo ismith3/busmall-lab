@@ -25,7 +25,7 @@ function clearCart() {
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
-  var tableBody = document.getElementByTagName('tbody')[0];
+  var tableBody = document.getElementsByTagName('tbody')[0];
   for(var i = 0; i < Cart.length; i++){
     var tableRow = document.createElement('tr');
     var tableData = document.createElement('td');
