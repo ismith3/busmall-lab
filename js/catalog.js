@@ -34,16 +34,17 @@ function handleSubmit(event) {
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
-  var selected = document.getElementsById('items').value;
+  var selected = document.getElementById('items').value;
   // TODO: get the quantity
   var quantity = document.getElementById('quantity').value;
   // TODO: using those, create a new Cart item instance
-  
+  new Cart(selected, quantity);
 }
 
 // TODO: Save the contents of the cart to Local Storage
 function saveCartToLocalStorage() {
-
+  localStorage.setItem('cartData', JSON.stringify(CartArray));
+  console.log(JSON.parse(localStorage.getItem('cartData')));
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
