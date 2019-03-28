@@ -7,9 +7,9 @@
 
 
 var Cart = function(item, quantity) {
-  this.items = items;
+  this.item = item;
   this.quantity = quantity;
-  Cart.push(this);
+  CartArray.push(this);
 }
 
 
