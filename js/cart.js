@@ -21,7 +21,7 @@ function renderCart() {
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {
   for(var i = 0; i < Cart.length; i++)
-    var destroy = document.getElementsByTagName('tfoot')[0].innerHTML='';
+    var destroy = document.getElementsByTagName('tbody')[0].innerHTML='';
 }
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
@@ -33,6 +33,11 @@ function showCart() {
     var tableItem = document.createElement('td');
     var tableQuantity = document.createElement('td');
     
+
+    tableX.addEventListener('click', removeItemFromCart);
+    tableX.setAttribute('id', Cart[i].item);
+
+
     tableX.textContent = 'X';
     tableItem.textContent = Cart[i].item;
     tableQuantity.textContent = Cart[i].quantity;
@@ -58,16 +63,10 @@ function showCart() {
 
 }
 
-function pickItemToRemove(){
-  for (var i = 0; i < Cart.length; i++) {
-    document.getElementsByTagName('tr')[i].addEventListener('click', removeItemFromCart);
-  }
-}
-
 function removeItemFromCart(event) {
-  Cart = cart.filter(pickItemToRemove);
-  localStorage.setItem('data', Cart)
-  renderChart();
+  Cart = Cart.filter(product => product.item !== event.target.id);
+  localStorage.setItem('cartData', JSON.stringify(Cart))
+  renderCart();
   // TODO: When a delete link is clicked, rebuild the Cart array without that item
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
