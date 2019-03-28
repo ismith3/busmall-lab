@@ -33,8 +33,10 @@ function showCart() {
     var tableItem = document.createElement('td');
     var tableQuantity = document.createElement('td');
     
+
     tableX.addEventListener('click', removeItemFromCart);
     tableX.setAttribute('id', Cart[i].item);
+
 
     tableX.textContent = 'X';
     tableItem.textContent = Cart[i].item;
@@ -60,7 +62,6 @@ function showCart() {
   // TODO: Add the TR to the TBODY and each of the TD's to the TR
 
 }
-
 
 function removeItemFromCart(event) {
   Cart = Cart.filter(product => product.item !== event.target.id);
